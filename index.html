@@ -382,6 +382,58 @@
     mix-blend-mode: screen;
   }
 
+  /* ── FLIP CARD ── */
+  .flip-card {
+    perspective: 1200px;
+    overflow: visible;
+    padding: 0 !important;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: inherit;
+  }
+
+  .flip-card-front {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 40px;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .flip-back-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   .card-num {
     font-size: 11px;
     letter-spacing: 0.15em;
@@ -895,18 +947,25 @@
 <section id="about">
   <div class="section-label">01 — Disciplines</div>
   <div class="disciplines fade-up">
-    <div class="discipline-card ux">
-      <img src="oracle-logo.png" alt="Oracle" class="card-logo">
-      <div class="card-num">01</div>
-      <div class="card-title">Enterprise UX &<br>Supply Chain</div>
-      <div class="card-subtitle">Principal Designer</div>
-      <p class="card-desc">Designed supply chain execution, manufacturing data management, and cloud infrastructure platforms. Led product design from early ideation through launch, scaling adoption to 1000+ enterprise customers. Created design system templates to support a consistent ecosystem and drove cross-team collaboration to improve operational efficiency for global business users.</p>
-      <div class="card-tags">
-        <span class="tag">Big Tech</span>
-        <span class="tag">Operations</span>
-        <span class="tag">Data Viz</span>
-        <span class="tag">Figma</span>
-        <span class="tag">Design Systems</span>
+    <div class="discipline-card ux flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="oracle-logo.png" alt="Oracle" class="card-logo">
+          <div class="card-num">01</div>
+          <div class="card-title">Enterprise UX &<br>Supply Chain</div>
+          <div class="card-subtitle">Principal Designer</div>
+          <p class="card-desc">Designed supply chain execution, manufacturing data management, and cloud infrastructure platforms. Led product design from early ideation through launch, scaling adoption to 1000+ enterprise customers. Created design system templates to support a consistent ecosystem and drove cross-team collaboration to improve operational efficiency for global business users.</p>
+          <div class="card-tags">
+            <span class="tag">Big Tech</span>
+            <span class="tag">Operations</span>
+            <span class="tag">Data Viz</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Design Systems</span>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <img src="auger-cover.png" alt="Oracle Work Preview" class="flip-back-img">
+        </div>
       </div>
     </div>
     <div class="discipline-card ai">
@@ -943,7 +1002,7 @@
 <!-- WORK -->
 <section id="work" style="padding-top: 0;">
   <div class="section-label">02 — Selected Work</div>
-  <a href="https://www.figma.com/deck/8LoxHTeCWsm9KufsBrkBKy" target="_blank" rel="noopener" class="portfolio-link fade-up" id="portfolioLink">
+  <a href="https://effyyuefan.framer.website/" target="_blank" rel="noopener" class="portfolio-link fade-up" id="portfolioLink">
     <div class="portfolio-link-inner">
       <div class="portfolio-link-left">
         <div class="portfolio-link-label">Full Portfolio</div>
